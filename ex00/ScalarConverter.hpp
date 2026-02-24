@@ -5,7 +5,7 @@
 # include <string.h>
 # include <iomanip>
 
-enum NumType {
+enum StrType {
     TYPE_INT,
 	TYPE_CHAR,
     TYPE_FLOAT,
@@ -26,7 +26,8 @@ class ScalarConverter
 		static void convert(const std::string& str);
 };
 
-NumType	detectNumberType(const std::string& str);
+int		isPseudoLiteral(std::string str);
+StrType	detectType(const std::string& str);
 bool	hasMultiDecimals(std::string str);
 
 #endif
