@@ -17,8 +17,8 @@ StrType	detectType(const std::string& str) {
 
 	if (len == 0 || hasMultiDecimals(str))
 		return TYPE_INVALID;
-	else if (len == 1)
-		return TYPE_CHAR;
+	else if (len == 1 && !std::isdigit(str[0]))
+		return (TYPE_CHAR);
 	std::string tmp = str.substr(0, len - 1);
 	if (str[len - 1] == 'f' || str[len - 1] == 'F') {
 		if (tmp.find_first_not_of("0123456789.+-") == std::string::npos)
