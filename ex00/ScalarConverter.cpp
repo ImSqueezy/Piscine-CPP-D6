@@ -21,7 +21,17 @@ void handlePseudoLiteral(std::string str) {
 }
 
 void	convertChar(std::string str) {
-	(void)str;
+	char	type;
+
+	type = str[0];
+	std::cout << "char: ";
+	if (!std::isprint(type))
+		std::cout << "Non Displayable\n";
+	else
+		std::cout << "'" << type << "'\n";
+	std::cout << "int: " << static_cast<int>(type) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(type) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(type) << "d" << std::endl;
 }
 			
 void	convertInt(std::string str) {
