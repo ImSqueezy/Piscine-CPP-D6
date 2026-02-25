@@ -4,6 +4,7 @@
 # include <iostream>
 # include <string.h>
 # include <iomanip>
+# include <limits.h>
 
 enum StrType {
     TYPE_INT,
