@@ -1,4 +1,4 @@
-NAME = prog
+NAME = a.out
 FLAGS = -Wall -Wextra -Werror
 COMPILE = c++ $(FLAGS)
 SRCS = ScalarConverter.cpp main.cpp utils.cpp
