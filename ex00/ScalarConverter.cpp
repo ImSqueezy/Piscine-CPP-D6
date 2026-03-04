@@ -26,27 +26,55 @@ static void	convertChar(std::string str) {
 	type = str[0];
 	std::cout << "char: ";
 	if (!std::isprint(type))
-		std::cout << "Non Displayable\n";
+		std::cout << "Non Displayable" << std::endl;
 	else
-		std::cout << "'" << type << "'\n";
+		std::cout << "'" << type << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(type) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(type) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(type) << std::endl;
+}
+
+static long ft_atoi(const char *str)
+{
+    long num;
+    int right_most;
+    int sign;
+    
+    num = 0;
+    sign = 1;
+    if (*str == '+')
+        str++;
+    else if (*str == '-')
+    {
+        sign = -1;
+        str++;
+    }
+    while (*str >= '0' && *str <= '9')
+    {
+        right_most = (*str - '0') * sign;
+        if (num > (INT_MAX / 10) || (num == (INT_MAX / 10) && right_most > 7))
+            return (2147483648);
+        if (num < (INT_MIN / 10) || (num == (INT_MIN / 10) && right_most < -8))
+            return (2147483648);
+        num = num * 10 + right_most;
+        str++;
+    }
+    return (num);
 }
 			
 static void	convertInt(std::string str) {
 	int		type;
 
-	type = std::atoi(str.c_str());
+	type = ft_atoi(str.c_str());
 	std::cout << "char: ";
 	if (type < 0 || type > 127)
-		std::cout << "Impossible\n";
+		std::cout << "Impossible" << std::endl;
 	else if (!std::isprint(type))
-		std::cout << "Non Displayable\n";
+		std::cout << "Non Displayable" << std::endl;
 	else
-		std::cout << "'" << static_cast<char>(type) << "'\n";
-	if (type == INT_MIN || type == INT_MAX)
-		std::cout << "int: Impossible\n";
+		std::cout << "'" << static_cast<char>(type) << "'" << std::endl;
+	if ((int)type == INT_MIN || (int)type == INT_MAX)
+		std::cout << "int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << type << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(type) << "f" << std::endl;
@@ -59,13 +87,13 @@ static void	convertFloat(std::string str) {
 	type = std::atof(str.c_str());
 	std::cout << "char: ";
 	if (type < 0 || type > 127)
-		std::cout << "Impossible\n";
+		std::cout << "Impossible" << std::endl;
 	else if (!std::isprint(type))
-		std::cout << "Non Displayable\n";
+		std::cout << "Non Displayable" << std::endl;
 	else
-		std::cout << "'" << static_cast<char>(type) << "'\n";
-	if (type <= INT_MIN || type >= INT_MAX)
-		std::cout << "int: Impossible\n";
+		std::cout << "'" << static_cast<char>(type) << "'" << std::endl;
+	if ((int)type <= INT_MIN || (int)type >= INT_MAX)
+		std::cout << "int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(type) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << type << "f" << std::endl;
@@ -73,18 +101,18 @@ static void	convertFloat(std::string str) {
 }
 
 static void	convertDouble(std::string str) {
-	float		type;
+	double		type;
 
 	type = std::atof(str.c_str());
 	std::cout << "char: ";
 	if (type < 0 || type > 127)
-		std::cout << "Impossible\n";
+		std::cout << "Impossible" << std::endl;
 	else if (!std::isprint(type))
-		std::cout << "Non Displayable\n";
+		std::cout << "Non Displayable" << std::endl;
 	else
-		std::cout << "'" << static_cast<char>(type) << "'\n";
-	if (type <= INT_MIN || type >= INT_MAX)
-		std::cout << "int: Impossible\n";
+		std::cout << "'" << static_cast<char>(type) << "'" << std::endl;
+	if ((int) type <= INT_MIN || (int)type >= INT_MAX)
+		std::cout << "int: Impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(type) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(type) << "f" << std::endl;
@@ -121,7 +149,7 @@ void ScalarConverter::convert(const std::string& str)
 	switch (type)
 	{
 		case TYPE_INVALID:
-			std::cout << "Invalid Type!\n";
+			std::cout << "Invalid Type!" << std::endl;
 			break;
 		case TYPE_INT:
 			convertInt(str);
