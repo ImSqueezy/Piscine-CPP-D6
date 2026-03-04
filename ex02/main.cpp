@@ -12,6 +12,19 @@ int main() {
 	Base* p2 = generate();
 	Base* p3 = generate();
 
+	std::cout << "\nTesting identify(Base* p)..." << std::endl;
+	identify(p1);
+	identify(p2);
+	identify(p3);
+
+	std::cout << "\nTesting identify(Base& p)..." << std::endl;
+	if (p1)
+		identify(*p1);
+	if (p2)
+		identify(*p2);
+	if (p3)
+		identify(*p3);
+
 	delete p1;
 	delete p2;
 	delete p3;
