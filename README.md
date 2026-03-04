@@ -30,9 +30,11 @@ Usage:
 The output demonstrates the use of reinterpret_cast, casting from Data to uintptr_t (large data type fit for any data type conversion) and viseversa.
 
 ## ex02/
+ex02/ is about understanding how to make use of dynamic_cast, getting the idea of std::typeinfo that typeid() returns when it comes to comparainson between class hierarchies and polymorphism.
 
 Usage:
 ```bash
+/a.out
 ```
 
 # Resources
