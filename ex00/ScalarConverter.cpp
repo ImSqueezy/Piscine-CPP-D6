@@ -1,20 +1,5 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() {
-	std::cout << "Constructor called!" << std::endl;
-}
-
-ScalarConverter::~ScalarConverter() {}
-
-ScalarConverter::ScalarConverter(const ScalarConverter& other) {
-	*this = other;
-}
-
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
-	(void)other;
-	return *this;
-}
-
 void handlePseudoLiteral(std::string str) {
 	(void)str;
 	std::cout << "In handle pseudo literal" << std::endl;

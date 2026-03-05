@@ -19,10 +19,10 @@ class ScalarConverter
 {
 	public:
 
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		ScalarConverter& operator=(const ScalarConverter& other);
+		ScalarConverter() = delete;
+		~ScalarConverter() = delete;
+		ScalarConverter(const ScalarConverter& other) = delete;
+		ScalarConverter& operator=(const ScalarConverter& other) = delete;
 
 		static void convert(const std::string& str);
 };

@@ -9,7 +9,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(COMPILE) $(OBJS) -o $(NAME)
 
-%.o:%.cpp base.hpp ADerived.hpp BDerived.hpp CDerived.hpp
+%.o:%.cpp Base.hpp ADerived.hpp BDerived.hpp CDerived.hpp
 	$(COMPILE) -c $< -o $@
 
 clean:
